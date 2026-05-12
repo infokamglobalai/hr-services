@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Futurestick — Next-Generation Career Platform</title>
+  <meta name="description" content="Futurestick unifies AI-powered job matching, live proctored interviews, a professional social network, and hiring competitions in one platform." />
+  <meta property="og:title" content="Futurestick — Next-Generation Career Platform" />
+  <meta property="og:description" content="Your AI-powered career co-pilot. Find jobs, ace interviews, build your future." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles/tokens.css" />
+  <link rel="stylesheet" href="styles/main.css" />
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  <script src="scripts/animations.js" defer></script>
+  <script src="scripts/main.js" defer></script>
+</head>
+<body>
+
+  <!-- ─── NAV ─── -->
+  <nav class="nav" id="navbar">
+    <div class="nav__inner container">
+      <a href="/" class="nav__logo" id="nav-logo">
+        <span class="nav__logo-icon">⚡</span>
+        <span class="nav__logo-text">Futurestick</span>
+      </a>
+      <ul class="nav__links" id="nav-links">
+        <li><a href="#features" class="nav__link">Features</a></li>
+        <li><a href="#ai" class="nav__link">AI Tools</a></li>
+        <li><a href="#interviews" class="nav__link">Interviews</a></li>
+        <li><a href="#pricing" class="nav__link">Pricing</a></li>
+      </ul>
+      <div class="nav__cta" id="nav-cta">
+        <a href="http://localhost:5173/login" class="btn btn--ghost">Sign In</a>
+        <a href="http://localhost:5173/signup" class="btn btn--primary">Get Started Free</a>
+      </div>
+      <button class="nav__hamburger" id="hamburger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ─── HERO ─── -->
+  <section class="hero" id="hero">
+    <div class="hero__bg">
+      <div class="hero__orb hero__orb--1"></div>
+      <div class="hero__orb hero__orb--2"></div>
+      <div class="hero__orb hero__orb--3"></div>
+      <canvas id="hero-canvas" class="hero__canvas"></canvas>
+    </div>
+    <div class="container hero__inner">
+      <div class="hero__badge" id="hero-badge">
+        <span class="badge__dot"></span>
+        <span>Now in Beta — 12,000+ Job Seekers Joined</span>
+      </div>
+      <h1 class="hero__headline" id="hero-headline">
+        Your Career,<br />
+        <span class="gradient-text" id="hero-gradient">Supercharged by AI</span>
+      </h1>
+      <p class="hero__sub" id="hero-sub">
+        Futurestick unifies AI job matching, live proctored interviews,<br class="desktop-only" />
+        a professional network, and hiring competitions — all in one platform.
+      </p>
+      <div class="hero__actions" id="hero-actions">
+        <a href="http://localhost:5173/signup" class="btn btn--primary btn--lg" id="hero-cta-seeker">
+          <span>Find Your Next Job</span>
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="http://localhost:5173/login" class="btn btn--ghost btn--lg" id="hero-cta-company">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="2" y="6" width="12" height="8" rx="1" stroke="currentColor" stroke-width="1.5"/><path d="M5 6V4a3 3 0 0 1 6 0v2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          <span>Hire Top Talent</span>
+        </a>
+      </div>
+      <div class="hero__stats" id="hero-stats">
+        <div class="stat">
+          <span class="stat__num" data-count="50000">0</span><span class="stat__suffix">+</span>
+          <span class="stat__label">Active Jobs</span>
+        </div>
+        <div class="stat__divider"></div>
+        <div class="stat">
+          <span class="stat__num" data-count="120000">0</span><span class="stat__suffix">+</span>
+          <span class="stat__label">Job Seekers</span>
+        </div>
+        <div class="stat__divider"></div>
+        <div class="stat">
+          <span class="stat__num" data-count="8500">0</span><span class="stat__suffix">+</span>
+          <span class="stat__label">Companies</span>
+        </div>
+        <div class="stat__divider"></div>
+        <div class="stat">
+          <span class="stat__num" data-count="98">0</span><span class="stat__suffix">%</span>
+          <span class="stat__label">Placement Rate</span>
+        </div>
+      </div>
+    </div>
+    <!-- Scroll indicator -->
+    <div class="hero__scroll" id="hero-scroll">
+      <div class="hero__scroll-line"></div>
+      <span>Scroll</span>
+    </div>
+  </section>
+
+  <!-- ─── LOGOS ─── -->
+  <section class="logos" id="logos">
+    <div class="container">
+      <p class="logos__label">Trusted by teams at</p>
+      <div class="logos__track" id="logos-track">
+        <div class="logos__inner">
+          <span class="logo-item">Google</span>
+          <span class="logo-item">Microsoft</span>
+          <span class="logo-item">Amazon</span>
+          <span class="logo-item">Flipkart</span>
+          <span class="logo-item">Infosys</span>
+          <span class="logo-item">Razorpay</span>
+          <span class="logo-item">Zomato</span>
+          <span class="logo-item">PhonePe</span>
+          <span class="logo-item">CRED</span>
+          <span class="logo-item">Meesho</span>
+          <!-- duplicate for seamless loop -->
+          <span class="logo-item">Google</span>
+          <span class="logo-item">Microsoft</span>
+          <span class="logo-item">Amazon</span>
+          <span class="logo-item">Flipkart</span>
+          <span class="logo-item">Infosys</span>
+          <span class="logo-item">Razorpay</span>
+          <span class="logo-item">Zomato</span>
+          <span class="logo-item">PhonePe</span>
+          <span class="logo-item">CRED</span>
+          <span class="logo-item">Meesho</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── FEATURES ─── -->
+  <section class="features" id="features">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Everything You Need</span>
+        <h2 class="section-title">One platform. <span class="gradient-text">Infinite possibilities.</span></h2>
+        <p class="section-sub">From your first resume to your dream offer — Futurestick is with you every step of the way.</p>
+      </div>
+      <div class="features__grid">
+        <div class="feature-card reveal" data-delay="0">
+          <div class="feature-card__icon" style="--c1:#8B5CF6;--c2:#6366F1">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h3 class="feature-card__title">AI Job Matching</h3>
+          <p class="feature-card__desc">Semantic vector search + XGBoost reranker finds your top 20 jobs daily, with plain-English explanations for every match.</p>
+          <ul class="feature-card__list">
+            <li>Skills & experience alignment</li>
+            <li>Salary & location fit</li>
+            <li>AI match score 0–100</li>
+          </ul>
+        </div>
+        <div class="feature-card reveal" data-delay="100">
+          <div class="feature-card__icon" style="--c1:#06B6D4;--c2:#0EA5E9">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="2" y="3" width="20" height="14" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M8 21h8M12 17v4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </div>
+          <h3 class="feature-card__title">Live Proctored Interviews</h3>
+          <p class="feature-card__desc">WebRTC-powered video with built-in whiteboard, code editor, AI transcription, and transparent proctoring — no third-party tools needed.</p>
+          <ul class="feature-card__list">
+            <li>Face + gaze tracking</li>
+            <li>Monaco code editor</li>
+            <li>AI interview summary</li>
+          </ul>
+        </div>
+        <div class="feature-card reveal" data-delay="200">
+          <div class="feature-card__icon" style="--c1:#F59E0B;--c2:#EF4444">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6z" stroke="currentColor" stroke-width="1.5"/><polyline points="14 2 14 8 20 8" stroke="currentColor" stroke-width="1.5"/><line x1="16" y1="13" x2="8" y2="13" stroke="currentColor" stroke-width="1.5"/><line x1="16" y1="17" x2="8" y2="17" stroke="currentColor" stroke-width="1.5"/></svg>
+          </div>
+          <h3 class="feature-card__title">AI Resume Studio</h3>
+          <p class="feature-card__desc">100+ templates, live preview builder, and a 12-dimension AI enhancer that scores and rewrites your resume for ATS and human readers.</p>
+          <ul class="feature-card__list">
+            <li>ATS compatibility score</li>
+            <li>One-click improvements</li>
+            <li>Export PDF / DOCX / JSON</li>
+          </ul>
+        </div>
+        <div class="feature-card reveal" data-delay="0">
+          <div class="feature-card__icon" style="--c1:#10B981;--c2:#059669">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="1.5"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </div>
+          <h3 class="feature-card__title">Professional Social Network</h3>
+          <p class="feature-card__desc">LinkedIn-depth profiles, a live social feed with communities, reactions, posts, and a "Looking for Job" broadcast visible to recruiters.</p>
+          <ul class="feature-card__list">
+            <li>6 reaction types</li>
+            <li>Community feeds</li>
+            <li>Real-time chat</li>
+          </ul>
+        </div>
+        <div class="feature-card reveal" data-delay="100">
+          <div class="feature-card__icon" style="--c1:#EC4899;--c2:#A855F7">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+          </div>
+          <h3 class="feature-card__title">Hiring Competitions</h3>
+          <p class="feature-card__desc">Companies host coding contests, hackathons, and case studies with cash prizes. Winners get fast-tracked to interviews.</p>
+          <ul class="feature-card__list">
+            <li>Real prize pools</li>
+            <li>Live leaderboards</li>
+            <li>Direct hire pipeline</li>
+          </ul>
+        </div>
+        <div class="feature-card reveal" data-delay="200">
+          <div class="feature-card__icon" style="--c1:#8B5CF6;--c2:#06B6D4">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 20h9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h3 class="feature-card__title">AI Auto-Apply Agent</h3>
+          <p class="feature-card__desc">Set your preferences. Our consent-based agent applies to matched jobs with a tailored resume and cover letter — while you sleep.</p>
+          <ul class="feature-card__list">
+            <li>Daily quota control</li>
+            <li>Per-job resume tailoring</li>
+            <li>Full audit trail</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── AI SHOWCASE ─── -->
+  <section class="ai-section" id="ai">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">8 AI Tools</span>
+        <h2 class="section-title">Your personal<br /><span class="gradient-text">AI Career Team</span></h2>
+      </div>
+      <div class="ai-tools">
+        <div class="ai-tool reveal" data-delay="0"><span class="ai-tool__emoji">🧠</span><span class="ai-tool__name">Career Counselor</span><span class="ai-tool__desc">LangGraph-powered coaching agent with memory</span></div>
+        <div class="ai-tool reveal" data-delay="50"><span class="ai-tool__emoji">🎯</span><span class="ai-tool__name">Job Matcher</span><span class="ai-tool__desc">Vector embeddings + reranker, top 20 daily</span></div>
+        <div class="ai-tool reveal" data-delay="100"><span class="ai-tool__emoji">🤖</span><span class="ai-tool__name">Auto-Apply Agent</span><span class="ai-tool__desc">Consent-based, tailored applications at scale</span></div>
+        <div class="ai-tool reveal" data-delay="150"><span class="ai-tool__emoji">🎙️</span><span class="ai-tool__name">Interview Practice</span><span class="ai-tool__desc">AI interviewer with Whisper voice + TTS feedback</span></div>
+        <div class="ai-tool reveal" data-delay="200"><span class="ai-tool__emoji">📄</span><span class="ai-tool__name">Resume Enhancer</span><span class="ai-tool__desc">12-dimension scoring, one-click rewrites</span></div>
+        <div class="ai-tool reveal" data-delay="250"><span class="ai-tool__emoji">✉️</span><span class="ai-tool__name">Cover Letter Gen</span><span class="ai-tool__desc">Tone, length, structure — fully editable output</span></div>
+        <div class="ai-tool reveal" data-delay="300"><span class="ai-tool__emoji">📊</span><span class="ai-tool__name">Skill Gap Analyzer</span><span class="ai-tool__desc">3–12 month personalized learning roadmap</span></div>
+        <div class="ai-tool reveal" data-delay="350"><span class="ai-tool__emoji">💰</span><span class="ai-tool__name">Salary Negotiator</span><span class="ai-tool__desc">Draft negotiation + voice rehearsal with AI recruiter</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── HOW IT WORKS ─── -->
+  <section class="how" id="how">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">How It Works</span>
+        <h2 class="section-title">From signup to <span class="gradient-text">dream offer</span></h2>
+      </div>
+      <div class="steps">
+        <div class="step reveal" data-delay="0">
+          <div class="step__num">01</div>
+          <div class="step__content">
+            <h3>Build Your Profile</h3>
+            <p>Upload your resume — our AI parses it in 8 seconds and pre-fills your entire profile. Refine in the Resume Studio.</p>
+          </div>
+        </div>
+        <div class="step__connector reveal"></div>
+        <div class="step reveal" data-delay="100">
+          <div class="step__num">02</div>
+          <div class="step__content">
+            <h3>Get Matched Daily</h3>
+            <p>Every morning, your AI Job Matcher delivers 20 ranked opportunities with match explanations and skill gap analysis.</p>
+          </div>
+        </div>
+        <div class="step__connector reveal"></div>
+        <div class="step reveal" data-delay="200">
+          <div class="step__num">03</div>
+          <div class="step__content">
+            <h3>Apply & Interview</h3>
+            <p>One-click apply with a tailored resume. Join live video interviews with AI transcription right inside Futurestick.</p>
+          </div>
+        </div>
+        <div class="step__connector reveal"></div>
+        <div class="step reveal" data-delay="300">
+          <div class="step__num">04</div>
+          <div class="step__content">
+            <h3>Land the Offer</h3>
+            <p>Use our Salary Negotiator AI to maximize your offer. Accept, and celebrate with your Futurestick community.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── TESTIMONIALS ─── -->
+  <section class="testimonials" id="testimonials">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Success Stories</span>
+        <h2 class="section-title">Trusted by <span class="gradient-text">thousands of builders</span></h2>
+        <p class="section-sub">See how Futurestick is transforming careers across the globe.</p>
+      </div>
+      <div class="testimonials__grid">
+        <div class="testimonial-card reveal" data-delay="0">
+          <p class="testimonial-card__quote">"Futurestick's AI resume studio is a game-changer. I got 5x more interviews within a week of using the AI-enhanced resume."</p>
+          <div class="testimonial-card__author">
+            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=150" alt="Sarah J." class="testimonial-card__avatar" />
+            <div class="testimonial-card__info">
+              <h4>Sarah Johnson</h4>
+              <p>Frontend Engineer @ Google</p>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card reveal" data-delay="100">
+          <p class="testimonial-card__quote">"The live proctored interview environment felt very professional. It's the most seamless technical interview experience I've ever had."</p>
+          <div class="testimonial-card__author">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=150" alt="David K." class="testimonial-card__avatar" />
+            <div class="testimonial-card__info">
+              <h4>David Kumar</h4>
+              <p>Fullstack Developer @ Flipkart</p>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card reveal" data-delay="200">
+          <p class="testimonial-card__quote">"As a recruiter, finding top talent has never been easier. The AI matching score saves us hours of manual screening."</p>
+          <div class="testimonial-card__author">
+            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=150" alt="Elena M." class="testimonial-card__avatar" />
+            <div class="testimonial-card__info">
+              <h4>Elena Martinez</h4>
+              <p>Senior Recruiter @ Microsoft</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── CTA BAND ─── -->
+  <section class="cta-band" id="cta">
+    <div class="cta-band__bg">
+      <div class="cta-band__orb"></div>
+    </div>
+    <div class="container cta-band__inner reveal">
+      <h2 class="cta-band__title">Ready to build your future?</h2>
+      <p class="cta-band__sub">Join 120,000+ professionals who found their next opportunity on Futurestick.</p>
+      <div class="cta-band__actions">
+        <a href="http://localhost:5173/signup" class="btn btn--primary btn--lg">Start for Free</a>
+        <a href="http://localhost:5173/login" class="btn btn--ghost btn--lg">Book a Demo →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── FOOTER ─── -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <a href="/" class="nav__logo">
+            <span class="nav__logo-icon">⚡</span>
+            <span class="nav__logo-text">Futurestick</span>
+          </a>
+          <p>Next-generation AI-powered career and recruitment platform.</p>
+        </div>
+        <div class="footer__links-group">
+          <h4>Platform</h4>
+          <ul>
+            <li><a href="#">For Job Seekers</a></li>
+            <li><a href="#">For Companies</a></li>
+            <li><a href="#">AI Features</a></li>
+            <li><a href="#">Live Interviews</a></li>
+            <li><a href="#">Competitions</a></li>
+          </ul>
+        </div>
+        <div class="footer__links-group">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Press</a></li>
+          </ul>
+        </div>
+        <div class="footer__links-group">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#">Cookie Policy</a></li>
+            <li><a href="#">DPA</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>© 2026 Futurestick. All rights reserved.</p>
+        <p>Built with ⚡ for the future of work.</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

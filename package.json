@@ -1,0 +1,23 @@
+{
+  "name": "futurestick",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*",
+    "backend/*"
+  ],
+  "scripts": {
+    "dev:landing": "cd apps/landing && npx serve .",
+    "dev:user": "npm run dev --workspace=apps/user-panel",
+    "dev:auth": "npm run dev --workspace=backend/auth-svc",
+    "dev:social": "npm run dev --workspace=backend/social-svc",
+    "dev:ai": "npm run dev --workspace=backend/ai-svc",
+    "dev:job": "npm run dev --workspace=backend/job-svc",
+    "dev:chat": "npm run dev --workspace=backend/chat-svc",
+    "dev": "npm-run-all --parallel dev:user dev:auth dev:social dev:ai dev:job dev:chat"
+  },
+  "devDependencies": {
+    "npm-run-all": "^4.1.5"
+  }
+}

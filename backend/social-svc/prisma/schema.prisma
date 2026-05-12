@@ -1,0 +1,41 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "./generated/client"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Post {
+  id        Int        @id @default(autoincrement())
+  uuid      String     @unique @default(uuid())
+  userId    Int        // Reference to User ID from auth-svc
+  content   String
+  type      String     @default("text") // text, looking_for_job, showcase
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+  likes     Reaction[]
+  comments  Comment[]
+}
+
+model Reaction {
+  id        Int      @id @default(autoincrement())
+  userId    Int
+  postId    Int
+  type      String   @default("like") // like, celebrate, insightful, support, funny, curious
+  createdAt DateTime @default(now())
+  post      Post     @relation(fields: [postId], references: [id])
+
+  @@unique([userId, postId]) // One reaction per user per post
+}
+
+model Comment {
+  id        Int      @id @default(autoincrement())
+  userId    Int
+  postId    Int
+  content   String
+  createdAt DateTime @default(now())
+  post      Post     @relation(fields: [postId], references: [id])
+}

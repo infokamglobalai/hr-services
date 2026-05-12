@@ -1,0 +1,35 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "./generated/client"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Job {
+  id           Int           @id @default(autoincrement())
+  title        String
+  company      String
+  location     String
+  salary       String?
+  type         String        @default("Full-time") // Full-time, Remote, Internship
+  description  String
+  requirements String // JSON stringified array
+  tags         String // JSON stringified array
+  postedAt     DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+  applications Application[]
+}
+
+model Application {
+  id        Int      @id @default(autoincrement())
+  jobId     Int
+  userId    Int
+  status    String   @default("Pending") // Pending, Reviewed, Interview, Rejected
+  appliedAt DateTime @default(now())
+  job       Job      @relation(fields: [jobId], references: [id])
+
+  @@unique([userId, jobId])
+}

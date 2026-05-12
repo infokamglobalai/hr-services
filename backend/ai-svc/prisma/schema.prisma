@@ -1,0 +1,33 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "./generated/client"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model ResumeData {
+  id        Int      @id @default(autoincrement())
+  userId    Int      @unique
+  fullName  String
+  email     String
+  phone     String?
+  summary   String?
+  skills    String   // JSON stringified array
+  workExp   String   // JSON stringified array
+  education String   // JSON stringified array
+  templateId String  @default("classic")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model CareerRoadmap {
+  id        Int      @id @default(autoincrement())
+  userId    Int      @unique
+  targetRole String
+  milestones String   // JSON stringified array
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
